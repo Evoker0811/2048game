@@ -1,5 +1,6 @@
 const size = 4;
 let board = [];
+let gameOver = false;
 
 function initBoard() {
     board = [];
@@ -97,7 +98,8 @@ function checkLose() {
 }
 
 function move(dir) {
-    let old = JSON.parse(JSON.stringify(board));
+    if (gameOver) return;
+	let old = JSON.parse(JSON.stringify(board));
 
     if (dir === "left") {
         for (let i = 0; i < size; i++)
@@ -135,12 +137,13 @@ function move(dir) {
 
 	if (checkWin()) {
     		alert("YOU WIN!");
-    		document.removeEventListener("keydown", null);
+    		gameOver = true;
+			return;
 	}
 
 	if (checkLose()) {
     		alert("GAME OVER!");
-    		document.removeEventListener("keydown", null);
+    		gameOver = true;
 	}
 
 }
@@ -153,4 +156,5 @@ document.addEventListener("keydown", e => {
 });
 
 window.onload = initBoard;
+
 
