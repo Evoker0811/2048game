@@ -26,21 +26,19 @@ h1 {
     gap: 10px;
 }
 
-/* Ô nền */
+/* Ô */
 .cell {
     background: #cdc1b4;
     border-radius: 10px;
-
     display: flex;
     justify-content: center;
     align-items: center;
-
     font-size: 32px;
     font-weight: bold;
     color: #776e65;
 }
 
-/* Màu từng giá trị */
+/* Màu */
 .value-0   { background: #cdc1b4; }
 .value-2   { background: #eee4da; }
 .value-4   { background: #ede0c8; }
@@ -53,3 +51,34 @@ h1 {
 .value-512 { background: #edc850; color: #f9f6f2; font-size: 26px; }
 .value-1024 { background: #edc53f; color: #f9f6f2; font-size: 22px; }
 .value-2048 { background: #edc22e; color: #f9f6f2; font-size: 22px; }
+
+/* Overlay Win/Lose */
+#overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.7);
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    z-index: 10;
+}
+
+#overlay.show {
+    display: flex;
+}
+
+#message {
+    font-size: 60px;
+    color: white;
+    font-weight: bold;
+}
+
+#overlay button {
+    padding: 12px 24px;
+    font-size: 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
